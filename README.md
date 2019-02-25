@@ -1,6 +1,6 @@
 # Long- and Short-Term Self-Attention Network for Sequential Recommendation
 
-This is our TensorFlow implementation for our paper and SASRec:
+This is our TensorFlow implementation for our paper and SASRec.
 
 ## Datasets
 
