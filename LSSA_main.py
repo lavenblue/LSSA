@@ -14,8 +14,9 @@ if __name__ == '__main__':
     parser.add_argument('--maxlen_l', default=200, type=int)
     parser.add_argument('--maxlen_s', default=50, type=int)
     parser.add_argument('--hidden_units', default=100, type=int)
-    parser.add_argument('--num_blocks', default=2, type=int)
     parser.add_argument('--num_epochs', default=201, type=int)
+    parser.add_argument('--num_lblocks', default=2, type=int)
+    parser.add_argument('--num_sblocks', default=2, type=int)
     parser.add_argument('--num_lheads', default=2, type=int)
     parser.add_argument('--num_sheads', default=2, type=int)
     parser.add_argument('--dropout_rate', default=0.5, type=float)
@@ -82,7 +83,7 @@ if __name__ == '__main__':
             t1 = time.time() - t0
             T += t1
             print('Evaluating------------', epoch)
-            top_K = [1, 5, 10, 15, 20]
+            top_K = [10, 20]
             hit_result = {}
             ndcg_result = {}
             apks = []
@@ -106,7 +107,7 @@ if __name__ == '__main__':
 
             for k in top_K:
                 print('HR@' + str(k) + ' = ' + str(np.mean(hit_result[k])) + ',  ' +
-                      'ndcg@' + str(k) + ' = ' + str(np.mean(ndcg_result[k])))
+                      'NDCG@' + str(k) + ' = ' + str(np.mean(ndcg_result[k])))
             print('MAP' + ' = ' + str(np.mean(apks)))
 
             t0 = time.time()
